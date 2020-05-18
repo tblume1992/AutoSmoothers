@@ -1,6 +1,6 @@
 # AutoSmoothers
-Class Arguments:
-  Smoothers: 
+Class Arguments:<br />
+  Smoothers: <br />
     1.'brown'- doubley exponential smoothed, takes alpha.<br />
     2.'simple'- simple exponential smoothing, takes alpha.<br />
     3.'double'- double exponential smoothing, take alpha and beta.<br />
