@@ -7,10 +7,10 @@ Class Arguments:
     4.'dampened_double'- dampened double exponential smoothing, takes alpha, beta, damp (damp factor between 0-1)
     5.'brown_linear'- brown's double exponential smoothing where the level is smoothed twice, takes alpha, beta
 
-    Smooth History:
+  Smooth History:
     Smooth history before fitting, True will do simple exponential smoothing while 'brown' will do doubley smoothed.
-
-    Clean Outliers:
+    
+  Clean Outliers:
     Cleans outliers with IQR, set the iqr_multiplier to change the tolerance where 3 is more leniant than 1.5.  Outliers are replace
     with the mean of the series excluding the outliers themselves.
 
