@@ -1,25 +1,25 @@
 # AutoSmoothers
 Class Arguments:
   Smoothers: 
-    1.'brown'- doubley exponential smoothed, takes alpha.
-    2.'simple'- simple exponential smoothing, takes alpha.
-    3.'double'- double exponential smoothing, take alpha and beta.
-    4.'dampened_double'- dampened double exponential smoothing, takes alpha, beta, damp (damp factor between 0-1)
-    5.'brown_linear'- brown's double exponential smoothing where the level is smoothed twice, takes alpha, beta
+    1.'brown'- doubley exponential smoothed, takes alpha.<br />
+    2.'simple'- simple exponential smoothing, takes alpha.<br />
+    3.'double'- double exponential smoothing, take alpha and beta.<br />
+    4.'dampened_double'- dampened double exponential smoothing, takes alpha, beta, damp (damp factor between 0-1)<br />
+    5.'brown_linear'- brown's double exponential smoothing where the level is smoothed twice, takes alpha, beta<br />
 
-  Smooth History:
-    Smooth history before fitting, True will do simple exponential smoothing while 'brown' will do doubley smoothed.
+  Smooth History:<br />
+    Smooth history before fitting, True will do simple exponential smoothing while 'brown' will do doubley smoothed.<br />
     
-  Clean Outliers:
+  Clean Outliers:<br />
     Cleans outliers with IQR, set the iqr_multiplier to change the tolerance where 3 is more leniant than 1.5.  Outliers are replace
-    with the mean of the series excluding the outliers themselves.
+    with the mean of the series excluding the outliers themselves.<br />
 
-  Class Methods:
-    Fit: fits given smoother with required arguments. Returns fitted, predicted, and cleansed history.
+  Class Methods:<br />
+    Fit: fits given smoother with required arguments. Returns fitted, predicted, and cleansed history.<br />
     Sample: samples our objective function (holdout error).  Uses multiprocessing and assigns a chain per worker.  Must run in __main__ 
-    for windows. Returns list of tuples from the sample as well as the list of fitted + predicted values.
+    for windows. Returns list of tuples from the sample as well as the list of fitted + predicted values.<br />
     Optimize: optimizes our objective function in an attempt to find a stable solution (i.e. a cluster center achieved from running 
-    'sample').  As such, it likely will not coincide with the minimum holdout error. Returns the optimal alpha/beta. 
+    'sample').  As such, it likely will not coincide with the minimum holdout error. Returns the optimal alpha/beta.<br /> 
 
 
 
@@ -102,7 +102,8 @@ if __name__ == '__main__':
     plt.scatter(output['Alpha'].values, output['Beta'].values, cmap=cm.jet, c=-output['MSE'].values, s=10)
     plt.axvline(x = output['Alpha'][min_mse_index], ymin = 0, ymax = output['Beta'][min_mse_index])
     plt.axhline(y = output['Beta'][min_mse_index], xmin = 0, xmax = output['Alpha'][min_mse_index])
-    plt.plot(optimal_coefs[0], optimal_coefs[1], marker='x', markersize=10, color="black")
+    #if you want to see the effectiveness of the optimized coefficients
+    #plt.plot(optimal_coefs[0], optimal_coefs[1], marker='x', markersize=10, color="black")
     plt.show()
     plt.hist(output['Alpha'], label = 'alpha')
     plt.show()
