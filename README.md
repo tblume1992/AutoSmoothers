@@ -43,7 +43,7 @@ if __name__ == '__main__':
     fitted, predicted, series = smoother.fit()
 ```
 Optimize to find optimal coefficients then refit with those. Guess I need to have it just return the optimal model instead to avoid 
-refitting
+refitting. Does not scale well with parameters, it scales 10<sup>k</sup> + 3<sup>k</sup> where k is the number of parameters so 2 is most likely the upper limit of usability.
 ```python
 import quandl
 import pandas as pd
